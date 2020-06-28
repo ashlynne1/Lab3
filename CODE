@@ -1,0 +1,35 @@
+nano lab3data.txt
+cat lab3data.txt | less
+#this contains the string information 
+!#/bin/bash
+awk '{
+sign="":
+if(substr($0,1,1) == "-")
+  {sign="-"};
+gsub("-", "", $0;
+split($0,d,"/");
+sickles = (d[1]*23)+d[2];
+knuts =(sickles*17)+d[3];
+if (sign == "-")
+  {knuts = -knuts};
+print knuts;
+}'
+chmod 777 string2knuts.sh
+vi knuts2string.sh
+chmod 777 knuts2string.sh
+#!/bin.bash
+awk '{
+sign = ""
+if (substr($0,1,1)=="-")
+  (sign = "-");
+gsub("-", "", $0);
+G= int (($0/23)/17);
+R = $0 % (23*17);
+S= int (R/17);
+K= R%17;
+ans =  sign G"/"S"/"K;
+print ans;
+}'
+cat lab3data.txt | ./string2knuts.sh >> knutdata.txt
+cat lab3data.txt | ./string2knuts.sh | awk' BEGIN {sum = 0} {sum += $0} END {print sum}'
+cat lab3data.txt | ./string2knuts.sh | awk' BEGIN {sum = 0} {sum += $0} END {print sum}' | ./ knuts2string.sh
